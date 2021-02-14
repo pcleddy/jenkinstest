@@ -28,6 +28,7 @@ def prepareOneBuildStage(String name) {
     stage("Build stage:${name}") {
       docker.image("hashicorp/terraform:light").inside('--entrypoint=""') {
         sh 'terraform init;terraform plan'
+        sh 'ls'
       }
     }
   }
