@@ -13,8 +13,9 @@ node('master') {
       'b': { stage("B") { sh 'echo B' } }
     ]
     git url: 'https://github.com/pcleddy/jenkinstest.git'
-    for (builds in [buildStages]) {
-        parallel(builds)
-    }
+    // for (builds in [buildStages]) {
+    //     parallel(builds)
+    // }
+    parallel(buildStages)
   }
 }
